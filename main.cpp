@@ -9,6 +9,7 @@
 #include <window/window.hpp>
 #include <window/shader/mapShader/mapShader.hpp>
 #include <window/shader/wormholeShader/wormholeShader.hpp>
+#include <fem/FEMSolver.hpp>
 
 #include <opencv2/opencv.hpp>
 
