@@ -25,10 +25,14 @@ class FEMSolver {
 
     Vector u_previous;
     Vector u_current; 
+
+    bool initial_conditions_set = false;
  public:
     FEMSolver(Matrix T, Matrix S, float timeStep = 0.0001);
 
-    void singleStep();
+    void setInitialConditions(Vector u_current, Vector u_previous);
+
+    bool singleStep();
 
     inline Vector& getCurrentU() {
         return u_current;
