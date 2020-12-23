@@ -11,7 +11,9 @@
 #include <GLFW/glfw3.h>
 
 
-WormholeShader::WormholeShader() : Shader::Shader(
+WormholeShader::WormholeShader(
+        int num_points_r, int num_points_theta, double r_radius, double a_radius) :
+            num_points_r(num_points_r), num_points_theta(num_points_theta), r_radius(r_radius), a_radius(a_radius), Shader::Shader(
     #include "vertex.vs"
     ,
     #include "fragment.fs"
@@ -29,11 +31,6 @@ WormholeShader::~WormholeShader() {
 struct Point {
     float x, y, z;
 };
-
-#define num_points_r 100
-#define num_points_theta 100
-#define r_radius 1.0
-#define a_radius 0.1
 
 
 void WormholeShader::loadMatrix(const cv::Mat& matrix) {

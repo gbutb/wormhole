@@ -18,8 +18,13 @@ class WormholeShader : public Shader {
     // Buffers
     unsigned int _VBO, _VAO;
 
+    int num_points_r;
+    int num_points_theta;
+    double r_radius;
+    double a_radius;
+
  public:
-    WormholeShader();
+    WormholeShader(int num_points_r = 100, int num_points_theta = 100, double r_radius = 1.0, double a_radius = 0.1);
     ~WormholeShader();
 
     /**
