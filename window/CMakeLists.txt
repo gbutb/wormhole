@@ -15,7 +15,8 @@ add_library(
     window.cpp
     camera.cpp
     shader/shader.cpp
-    shader/mapShader/mapShader.cpp)
+    shader/mapShader/mapShader.cpp
+    shader/wormholeShader/wormholeShader.cpp)
 
 target_link_libraries(
     window

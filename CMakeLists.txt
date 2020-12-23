@@ -37,3 +37,9 @@ include_directories(
     ${OPENCL_INCLUDE_DIR})
 
 add_subdirectory(window/)
+
+
+add_executable(main main.cpp)
+target_link_libraries(
+    main window
+    ${OpenCV_LIBS})
