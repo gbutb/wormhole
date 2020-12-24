@@ -18,19 +18,19 @@ class Wormhole {
     static float integralQii_minus1(double xi, double x, double a, double deltaX) {
         double A = pow(a, 3) * (x - 2 * xi + deltaX) + a * x * xi * (-xi + deltaX) - (pow(a,2) + pow(x,2))*(pow(a,2) + xi*(xi - deltaX))*atan(x/a);
         double B = 2 * a * (pow(a, 2) + pow(x, 2)) * pow(deltaX, 2);
-        return A / B;
+        return a != 0 ? A / B : 0;
     }
 
     static float integralQii0(double xi, double x, double a, double deltaX) {
         double A = a * x * pow(xi - deltaX, 2) - pow(a, 3) * (x - 2 * xi + 2 * deltaX) + (pow(a, 2) + pow(x, 2)) * (pow(a, 2) + pow(xi - deltaX, 2))*atan(x/a);
         double B = 2 * a * (pow(a, 2) + pow(x, 2)) * pow(deltaX, 2);
-        return A / B;
+        return a != 0 ? A / B : 0;
     }
 
     static float integralQii1(double xi, double x, double a, double deltaX) {
         double A = a * x * pow(xi + deltaX, 2) + pow(a, 3) * (-x + 2 * (xi + deltaX)) + (pow(a, 2) + pow(x, 2)) * (pow(a, 2) + pow(xi + deltaX, 2))*atan(x/a);
         double B = 2 * a * (pow(a, 2) + pow(x, 2)) * pow(deltaX, 2);
-        return A / B;
+        return a != 0 ? A / B : 0;
     }
 
  public:
