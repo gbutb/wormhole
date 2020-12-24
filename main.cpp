@@ -23,7 +23,7 @@ int main(void) {
 
     // Initialize shader
     int num_points_r = 100;
-    double r_radius = 5.0;
+    double r_radius = 6.0;
     double a_radius = 1.0;
     WormholeShader wormholeShader(num_points_r, num_points_r, r_radius, a_radius);
 
