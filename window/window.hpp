@@ -33,7 +33,7 @@ class Window {
     GLFWwindow* _window;
 
     // Camera
-    float _speed = 0.01;
+    float _speed = 0.05;
     ptr_Camera _camera = nullptr;
 
     // Events

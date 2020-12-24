@@ -14,7 +14,7 @@ out float value;
 out float depth;
 
 void main() {
-    vec4 position = model * vec4(aPos.y, aPos.z, aPos.x, 1.0);
+    vec4 position = model * vec4(aPos.y, aPos.x, aPos.z, 1.0);
     value = aPos.w;
     depth = position.z;
 	gl_Position = projection *  position;

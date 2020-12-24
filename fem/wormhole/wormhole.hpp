@@ -31,6 +31,11 @@ class Wormhole {
         return T;
     }
 
+    static Matrix getQ(double r_radius, double a_radius, double stepSize, int N) {
+        Matrix Q = Matrix::Zero(N, N);
+        return Q;
+    }
+
     // TODO use any a.
     static Matrix getS(double stepSize, int N) {
         Matrix S = Matrix::Zero(N, N);

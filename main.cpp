@@ -23,14 +23,15 @@ int main(void) {
 
     // Initialize shader
     int num_points_r = 100;
-    double r_radius = 1.0;
+    double r_radius = 5.0;
     double a_radius = 1.0;
     WormholeShader wormholeShader(num_points_r, num_points_r, r_radius, a_radius);
 
     // Initialize solver
     double stepSize = (2.0*r_radius) / (num_points_r - 1.0);
     Eigen::MatrixXd T = Wormhole::getT(stepSize, num_points_r);
-    Eigen::MatrixXd S = Wormhole::getS(stepSize, num_points_r);
+    Eigen::MatrixXd S = Wormhole::getS(stepSize, num_points_r) + Wormhole::getQ(
+        r_radius, a_radius, stepSize, num_points_r);
     FEMSolver solver(T, S);
 
     // Initialize initial condition
