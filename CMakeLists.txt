@@ -42,7 +42,8 @@ add_subdirectory(fem/)
 add_executable(main main.cpp)
 target_link_libraries(
     main window
-    ${OpenCV_LIBS})
+    ${OpenCV_LIBS}
+    femSolver)
 
 add_executable(mainFEM mainFEM.cpp)
 target_link_libraries(
