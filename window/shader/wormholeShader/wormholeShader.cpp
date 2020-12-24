@@ -42,7 +42,7 @@ void WormholeShader::loadMatrix(const cv::Mat& matrix) {
     Point* points = (Point*)malloc(sizeof(Point)*num_points_r*num_points_theta);
 
     for (int r_id = 0; r_id < num_points_r; ++r_id) {
-        double r = -r_radius + (r_id * r_radius * 2.0) / num_points_r;
+        double r = -r_radius + (r_id * r_radius * 2.0) / (num_points_r - 1);
         for (int theta_id = 0; theta_id < num_points_theta; ++theta_id) {
             double theta = (2.0 * M_PI * theta_id) / (num_points_theta - 1);
 

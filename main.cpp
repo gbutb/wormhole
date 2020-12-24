@@ -37,7 +37,9 @@ int main(void) {
     // Initialize initial condition
     Vector u = Vector::Zero(num_points_r);
     for (int i = 0; i < num_points_r; ++i) {
-        u(i) = pow(sin(M_PI * i * stepSize), 2);
+        double r = -r_radius + stepSize*i;
+        //if (r > 0 && r < 1.0)
+        u(i) = pow(sin(M_PI * r), 2);
     }
     solver.setInitialConditions(u, u);
 
