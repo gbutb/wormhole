@@ -35,6 +35,7 @@ struct Point {
 
 void WormholeShader::loadMatrix(const cv::Mat& matrix) {
     CV_Assert(matrix.type() == CV_32FC1);
+    CV_Assert(matrix.cols == num_points_r);
     use();
 
     Point* points = (Point*)malloc(sizeof(Point)*num_points_r*num_points_theta);
@@ -44,9 +45,10 @@ void WormholeShader::loadMatrix(const cv::Mat& matrix) {
         for (int theta_id = 0; theta_id < num_points_theta; ++theta_id) {
             double theta = (2.0 * M_PI * theta_id) / (num_points_theta - 1);
 
+            double offset = pow(matrix.at<float>(r_id), 2);
             points[theta_id + r_id*num_points_theta] = Point({
-                .x = static_cast<float>(sqrt(pow(a_radius, 2) + pow(r, 2))*cos(theta)),
-                .y = static_cast<float>(sqrt(pow(a_radius, 2) + pow(r, 2))*sin(theta)),
+                .x = static_cast<float>(sqrt(pow(a_radius, 2) + pow(r, 2) + offset)*cos(theta)),
+                .y = static_cast<float>(sqrt(pow(a_radius, 2) + pow(r, 2) + offset)*sin(theta)),
                 .z = static_cast<float>(a_radius * acosh(sqrt(pow(r,2) + pow(a_radius, 2)) / a_radius)) * (r > 0 ? 1 : -1)
             });
         }

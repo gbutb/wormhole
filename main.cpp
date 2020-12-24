@@ -18,14 +18,19 @@ int main(void) {
     Window window("main", 1280, 720);
     window.attachCamera(camera);
 
-    cv::Mat mat = cv::Mat::zeros(cv::Size(100, 100), CV_32FC1);
+    cv::Mat mat = cv::Mat::ones(cv::Size(100, 1), CV_32FC1);
+
+    for (int i = 0; i < 100; ++i) {
+        mat.at<float>(i) = sin(i / 100.0 * M_PI * 5.0);
+    }
 
     MapShader mapShader(100, 100);
     WormholeShader wormholeShader;
     mapShader.loadMatrix(mat);
-    wormholeShader.loadMatrix(mat);
 
+    int i = 0;
     while (window) {
+        wormholeShader.loadMatrix(mat);
         wormholeShader.setMatrix("model", glm::value_ptr(window.getCamera()->getModel()));
         wormholeShader.setMatrix("projection", glm::value_ptr(window.getCamera()->getProjection()));
         wormholeShader.render();
